@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: process.env.REACT_APP_BACKEND_URL,  // Use env variable
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
 
 // Add Authorization header if token exists
 axiosInstance.interceptors.request.use((config) => {
